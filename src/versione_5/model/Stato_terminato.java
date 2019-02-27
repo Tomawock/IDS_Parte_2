@@ -8,4 +8,10 @@ public class Stato_terminato extends Stato {
 		return null;
 	}
 
+	@Override
+	public void inizializza_output() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

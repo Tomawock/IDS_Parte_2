@@ -12,5 +12,4 @@ public class Main {
 		Controller_ms controller= new Controller_ms(stato_attuale, view);
 		controller.start();
 	}
-
 }

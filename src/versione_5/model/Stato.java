@@ -2,7 +2,6 @@ package versione_5.model;
 
 public abstract class Stato {
 	
-	
 	private String output;
 	
 	public Stato() {
@@ -20,7 +19,6 @@ public abstract class Stato {
 	public void set_output(String output){
 		this.output= output;
 	}
-	
 	
 	public abstract Stato porssimo_stato(String dati_input);
 }
