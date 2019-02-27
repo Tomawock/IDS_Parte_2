@@ -14,11 +14,11 @@ public class View {
 	}
 	
 	public int log_in_scelta() {
-		
+		/*
 		Costanti.GRECA + \n + "              MENU' PRINCIPALE         " 
 		+ Costanti.GRECA + \n + "1)Accedere\n" + "2)Registrazione\n"
 		+ "3)Esci" + Costanti.GRECA 
-		
+		*/
 		System.out.println(Costanti.GRECA);
 		System.out.println("              MENU' PRINCIPALE         ");
 		System.out.println(Costanti.GRECA);

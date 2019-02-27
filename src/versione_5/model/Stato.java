@@ -3,8 +3,10 @@ package versione_5.model;
 public abstract class Stato {
 	
 	private String output;
+	private Object attore;
 	
-	public Stato() {
+	public Stato(Object attore) {
+		this.attore=attore;
 		inizializza_output();
 	}
 	/**
@@ -12,13 +14,17 @@ public abstract class Stato {
 	 */
 	public abstract void inizializza_output();
 
+	public Object get_attore() {
+		return attore;
+	}
 
 	public String get_output() {
 		return output;
 	}
+	
 	public void set_output(String output){
 		this.output= output;
 	}
 	
-	public abstract Stato porssimo_stato(String dati_input);
+	public abstract void prossimo_stato(Model_context model,String dati_input);
 }

@@ -4,21 +4,29 @@ import utilita.Costanti_output;
 
 public class Stato_iniziale extends Stato{
 
+	public Stato_iniziale(Object attore) {
+		super(attore);
+	}
+
 	@Override
-	public Stato porssimo_stato(String dati_input) {
+	public void prossimo_stato(Model_context model,String dati_input) {
 		//codice controller old
 		switch (dati_input) {
 			case "1":{
-				return new Stato_log_in_utente();
+				 model.set_stato_attuale(new Stato_log_in_utente(get_attore()));
+				 break;
 			}
 			case "2":{
-				return new Stato_registrazione_utente();
+				 model.set_stato_attuale(new Stato_registrazione_utente(get_attore()));
+				 break;
 			}
 			case "3":{
-				return new Stato_terminato();
+				 model.set_stato_attuale(new Stato_terminato(get_attore()));
+				 break;
 			}
 			default:{
-				return new Stato_errore();
+				 model.set_stato_attuale(new Stato_errore(model, this, this, "inseriti dati sbagliati", get_attore()));
+				 break;
 			}
 		}
 	}
