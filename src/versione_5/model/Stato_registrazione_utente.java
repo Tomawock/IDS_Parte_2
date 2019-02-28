@@ -8,12 +8,10 @@ public class Stato_registrazione_utente extends Stato {
 
 	public Stato_registrazione_utente(Object attore) {
 		super(attore);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void inizializza_output() {
-		// TODO Auto-generated method stub
 		super.set_output(new ArrayList<>(Arrays.asList(" **** Inserire Nome **** ",
 				" **** Inserire Cognome **** ",
 				" **** Inserire Mail **** ",
@@ -26,11 +24,10 @@ public class Stato_registrazione_utente extends Stato {
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> view_input) {
-		// TODO Auto-generated method stub
-		//controllo dei dati dell'utente 
 		Utente user= null;
 		ArrayList<String> nuovo_utente=view_input;
 		try {
+			//controllo dei dati dell'utente 
 			user= new Utente(nuovo_utente);
 		}catch (Exception e) {
 			model.set_stato_attuale(new Stato_errore(model, new Stato_iniziale(null), this, "Hai inserito dei dati sbagliati", get_attore()));

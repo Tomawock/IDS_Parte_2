@@ -7,6 +7,7 @@ import java.util.Observer;
 import versione_5.model.Model_context;
 import versione_5.model.Stato;
 import versione_5.model.Stato_iniziale;
+import versione_5.model.Stato_terminato;
 import versione_5.view.View_ms;
 
 public class Controller_ms implements Observer {
@@ -31,7 +32,9 @@ public class Controller_ms implements Observer {
 		ArrayList<String> view_input=view.get_input();		
 		model.prossimo_stato(view_input);
 		view.set_output(model.get_stato_attuale().get_output());
-		view.aggiorna();
+		//TODO
+		if(!model.get_stato_attuale().getClass().getSimpleName().equals(Stato_terminato.class.getSimpleName()))
+			view.aggiorna();
 	}
 	
 }

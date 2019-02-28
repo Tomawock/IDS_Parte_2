@@ -1,23 +1,24 @@
 package versione_5.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class Stato_terminato extends Stato {
+public class Stato_log_in_operatore extends Stato {
 
-	public Stato_terminato(Object attore) {
+	public Stato_log_in_operatore(Object attore) {
 		super(attore);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void inizializza_output() {
-		super.set_output(new ArrayList<>(Arrays.asList(" **** ARRIVEDERCI **** ")));
-		
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> view_input) {
-		return;	
+		// TODO Auto-generated method stub
+
 	}
 
 }

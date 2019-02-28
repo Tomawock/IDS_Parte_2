@@ -13,7 +13,6 @@ public class Stato_iniziale extends Stato{
 
 	@Override
 	public void prossimo_stato(Model_context model,ArrayList<String> dati_input) {
-		//codice controller old
 		switch (dati_input.get(0)) {
 			case "1":{
 				 model.set_stato_attuale(new Stato_log_in_utente(get_attore()));

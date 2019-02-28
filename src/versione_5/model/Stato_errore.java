@@ -18,19 +18,27 @@ public class Stato_errore extends Stato{
 
 	@Override
 	public void inizializza_output() {
-		super.set_output(new ArrayList<>(Arrays.asList(this.errore+
-				"\n"+"premere 1 per tornare indietro premere 2 per reiserire i dati")));
+		super.set_output(new ArrayList<>(Arrays.asList(this.errore +
+				"\nPremere 1 per tornare indietro \nPremere 2 per reiserire i dati")));
 		
 	}
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		// TODO Auto-generated method stub
-		if(dati_input.get(0).equals("1")) {
-			model.set_stato_attuale(back);
-		}else if(dati_input.get(0).equals("2")) {
-			model.set_stato_attuale(undo);
-		}//todo
+		switch(dati_input.get(0)) {
+			case "1":{
+				model.set_stato_attuale(back);
+				break;
+			}
+			case "2":{
+				model.set_stato_attuale(undo);
+				break;
+			}
+			default:{
+				model.set_stato_attuale(new Stato_errore(model, back, undo, "Opzione non disponibile", get_attore()));
+			}
+		}
 	}
 
 }
