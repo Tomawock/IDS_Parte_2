@@ -15,7 +15,7 @@ public class Stato_utente_loggato extends Stato {
 	public void inizializza_output() {
 		super.set_output(new ArrayList<>(Arrays.asList(Costanti.GRECA
 				+"\n"
-				+"              MENU' ACCESSO BENVENUTO "+((Utente)get_attore()).get_username()
+				+"              MENU' ACCESSO BENVENUTO "+((Utente)get_attore()).get_username() 
 				+"\n" 
 				+Costanti.GRECA
 				+"\n"
@@ -31,25 +31,27 @@ public class Stato_utente_loggato extends Stato {
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {	
+		Utente utente= model.get_database_file().carica_utente(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
+		Fruitore fruitore=model.get_database_file().carica_fruitore(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
+		Operatore operatore=model.get_database_file().carica_operatore(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
+		
 		switch (dati_input.get(0)) {
 			case "1":{//Loggare come Fruitore		
-				Fruitore fruitore=model.get_database_file().carica_fruitore(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
 				if(fruitore==null) {
-					model.set_stato_attuale(new Stato_errore(model, this, this, "Non sei registrato come fruitore", get_attore()));
+					model.set_stato_attuale(new Stato_notifica(this,"Non sei registrato come fruitore" , get_attore()));
 				}
 				else {
 					if(!fruitore.is_valido()) {//controlla che sia 
 						model.get_database_file().elimina_fruitore(fruitore);		
-						model.set_stato_attuale(new Stato_errore(model, this,this, "La registrazione come fruitore e' scaduta", get_attore()));
+						model.set_stato_attuale(new Stato_notifica(this,"La registrazione come fruitore e' scaduta" , get_attore()));
 					}
 				model.set_stato_attuale(new Stato_fruitore_loggato(fruitore));
 				}
 				break;
 			}
 			case "2":{//Loggare come Operatore
-				Operatore operatore=model.get_database_file().carica_operatore(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
 				if(operatore==null) {
-					model.set_stato_attuale(new Stato_errore(model, this, this, "Non sei registrato come operatore", get_attore()));
+					model.set_stato_attuale(new Stato_notifica(this,"Non sei registrato come operatore" , get_attore()));
 				}
 				else {
 					model.set_stato_attuale(new Stato_operatore_loggato(operatore));
@@ -57,19 +59,36 @@ public class Stato_utente_loggato extends Stato {
 				break;
 			}
 			case "3":{//Registra nuovo Fruitore
-				 model.set_stato_attuale(new Stato_registra_nuovo_fruitore(get_attore()));
+				 if(fruitore!=null) {
+					 model.set_stato_attuale(new Stato_notifica(this,"Sei gia registrato come fruitore" , get_attore()));
+					}
+					else if(utente.get_eta()>=18) {
+						model.get_database_file().salva_fruitore(new Fruitore(utente));
+						model.get_archivio().salva_fruitore(new Fruitore(utente));//salvo nell'archivio
+						model.set_stato_attuale(new Stato_notifica(this,"Sei stato registrato come Fruitore" , get_attore()));
+					}
+					else {
+						model.set_stato_attuale(new Stato_notifica(this,"Non puoi diventare fruitore in quanto non sei maggiorenne" , get_attore()));
+					}
 				 break;
 			}
 			case "4":{//Registra nuovo Operatore
-				 model.set_stato_attuale(new Stato_registra_nuovo_operatore(get_attore()));
-				 break;
+				if(operatore!=null) {
+					model.set_stato_attuale(new Stato_notifica(this,"Sei gia registrato come operatore" , get_attore()));
+				}
+				else {	
+					model.get_database_file().salva_operatore(new Operatore(utente));
+					model.get_archivio().salva_operatore(new Operatore(utente));//salvo l'operatore nell'archivio
+					model.set_stato_attuale(new Stato_notifica(this,"Sei stato registrato come Operatore" , get_attore()));
+				}
+				break;
 			}
 			case "5":{//Torna alla pagina di log in
 				 model.set_stato_attuale(new Stato_iniziale(null));
 				 break;
 			}
 			default:{
-				 model.set_stato_attuale(new Stato_errore(model, new Stato_iniziale(null), this, "inseriti dati sbagliati", get_attore()));
+				 model.set_stato_attuale(new Stato_errore(new Stato_iniziale(null), this, "inseriti dati sbagliati", get_attore()));
 				 break;
 			}
 		}	

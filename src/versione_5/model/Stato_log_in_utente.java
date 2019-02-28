@@ -25,7 +25,7 @@ public class Stato_log_in_utente extends Stato {
 		Utente user = model.get_database_file().carica_utente(utente_user, utente_psw);
 		
 		if(user==null) {
-			model.set_stato_attuale(new Stato_errore(model, new Stato_iniziale(super.get_attore()),this,"Username o password errati,o utente non registrato",get_attore()));
+			model.set_stato_attuale(new Stato_errore(new Stato_iniziale(super.get_attore()), this,"Username o password errati,o utente non registrato",get_attore()));
 		}
 		else {
 			model.set_stato_attuale(new Stato_utente_loggato(user));//passo come parametro allo stato successivo l'utente corretto

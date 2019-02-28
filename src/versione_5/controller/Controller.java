@@ -293,10 +293,7 @@ public class Controller {
 				}
 			}
 			this.view.scrivi(esito);		
-			this.fruitore_loggato(fruitore);
-			
-			
-			
+			this.fruitore_loggato(fruitore);			
 		}else if(scelta==5){//ricerca o visualizza disponibilità Risorsa
 			this.ricerca_o_disponibilita();	
 			this.fruitore_loggato(fruitore);

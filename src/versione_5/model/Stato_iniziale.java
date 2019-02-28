@@ -27,7 +27,7 @@ public class Stato_iniziale extends Stato{
 				 break;
 			}
 			default:{
-				 model.set_stato_attuale(new Stato_errore(model, this, this, "inseriti dati sbagliati", get_attore()));
+				 model.set_stato_attuale(new Stato_errore(this, this, "inseriti dati sbagliati", get_attore()));
 				 break;
 			}
 		}

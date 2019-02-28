@@ -30,7 +30,7 @@ public class Stato_registrazione_utente extends Stato {
 			//controllo dei dati dell'utente 
 			user= new Utente(nuovo_utente);
 		}catch (Exception e) {
-			model.set_stato_attuale(new Stato_errore(model, new Stato_iniziale(null), this, "Hai inserito dei dati sbagliati", get_attore()));
+			model.set_stato_attuale(new Stato_errore(new Stato_iniziale(null), this, "Hai inserito dei dati sbagliati", get_attore()));
 			return;
 		}
 		if(!model.get_database_file().is_presente(user)) {//controlla che l'utente non sia gia registrato(NON esistono due utenti con lo stesso username)
@@ -39,7 +39,7 @@ public class Stato_registrazione_utente extends Stato {
 			//una volta completata l'iscrizione torna al log in
 			model.set_stato_attuale(new Stato_iniziale(null));
 		}else {
-			model.set_stato_attuale(new Stato_errore(model, new Stato_iniziale(null), this, "Utete gia presente", get_attore()));
+			model.set_stato_attuale(new Stato_errore(new Stato_iniziale(null), this, "Utete gia presente", get_attore()));
 		}
 	}
 

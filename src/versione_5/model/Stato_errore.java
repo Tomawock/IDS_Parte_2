@@ -8,7 +8,7 @@ public class Stato_errore extends Stato{
 	private Stato back,undo;
 	private String errore;
 	
-	public Stato_errore(Model_context model, Stato back, Stato undo,String msg_errore,Object attore) {
+	public Stato_errore(Stato back, Stato undo, String msg_errore,Object attore) {
 		super(attore);
 		this.back=back;
 		this.undo=undo;
@@ -36,7 +36,7 @@ public class Stato_errore extends Stato{
 				break;
 			}
 			default:{
-				model.set_stato_attuale(new Stato_errore(model, back, undo, "Opzione non disponibile", get_attore()));
+				model.set_stato_attuale(new Stato_errore(back, undo, "Opzione non disponibile", get_attore()));
 			}
 		}
 	}
