@@ -1,5 +1,7 @@
 package versione_5.model;
 
+import java.util.ArrayList;
+
 public class Stato_terminato extends Stato {
 
 	public Stato_terminato(Object attore) {
@@ -14,8 +16,9 @@ public class Stato_terminato extends Stato {
 	}
 
 	@Override
-	public void prossimo_stato(Model_context model, String dati_input) {
+	public void prossimo_stato(Model_context model, ArrayList<String> view_input) {
 		// TODO Auto-generated method stub
+		return;
 		
 	}
 

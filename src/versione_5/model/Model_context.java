@@ -1,18 +1,25 @@
 package versione_5.model;
 
+import java.util.ArrayList;
+
 public class Model_context {
 	
 	private Stato stato_attuale;
 	private Database_file db;
+	private Archivio archivio;
 	
 	public Model_context() {
 		db= new Database_file();
+		archivio= new Archivio();
 	}
 	
 	public Database_file get_database_file() {
 		return db;
 	}
 	
+	public Archivio get_archivio() {
+		return archivio;
+	}
 	
 	public Stato get_stato_attuale() {
 		return stato_attuale;
@@ -22,7 +29,7 @@ public class Model_context {
 		this.stato_attuale = stato_attuale;
 	}
 	
-	public void prossimo_stato(String input_utente) {
-		stato_attuale.prossimo_stato(this,input_utente);
+	public void prossimo_stato(ArrayList<String> view_input) {
+		stato_attuale.prossimo_stato(this,view_input);
 	}
 }

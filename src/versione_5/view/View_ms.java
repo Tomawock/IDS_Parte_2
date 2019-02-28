@@ -1,27 +1,34 @@
 package versione_5.view;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 import utilita.IO;
 
 public class View_ms extends Observable{
 
-	private String input;
-	private String output;
+	private ArrayList<String> input;
+	private ArrayList<String> output;
 	
+	public View_ms(){
+		input= new ArrayList<>();
+		output = new ArrayList<>();
+	}
 	
-	public String get_input() {	
+	public ArrayList<String> get_input() {	
 		return input;
 	}
 	
-	public void set_output(String get_output) {
+	public void set_output(ArrayList<String> get_output) {
 		this.output= get_output;
+		input.clear();
 	}
 	
 	public void aggiorna() {
-		System.out.println(this.output);
-		this.input=IO.insertString();
-		
+		for(int i=0; i< this.output.size();i++) {
+			System.out.println(this.output.get(i));
+			this.input.add(IO.insertString());
+		}
 		setChanged();
 		notifyObservers();
 	}

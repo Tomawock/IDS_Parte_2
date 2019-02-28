@@ -1,8 +1,10 @@
 package versione_5.model;
 
+import java.util.ArrayList;
+
 public abstract class Stato {
 	
-	private String output;
+	private ArrayList<String> output;
 	private Object attore;
 	
 	public Stato(Object attore) {
@@ -18,13 +20,13 @@ public abstract class Stato {
 		return attore;
 	}
 
-	public String get_output() {
+	public ArrayList<String> get_output() {
 		return output;
 	}
 	
-	public void set_output(String output){
+	public void set_output(ArrayList<String> output){
 		this.output= output;
 	}
 	
-	public abstract void prossimo_stato(Model_context model,String dati_input);
+	public abstract void prossimo_stato(Model_context model,ArrayList<String> view_input);
 }

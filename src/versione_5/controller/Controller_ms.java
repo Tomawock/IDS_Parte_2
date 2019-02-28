@@ -1,5 +1,6 @@
 package versione_5.controller;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -27,7 +28,7 @@ public class Controller_ms implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		String view_input=view.get_input();		
+		ArrayList<String> view_input=view.get_input();		
 		model.prossimo_stato(view_input);
 		view.set_output(model.get_stato_attuale().get_output());
 		view.aggiorna();

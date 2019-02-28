@@ -1,6 +1,9 @@
 package versione_5.model;
 
-import utilita.Costanti_output;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import utilita.Costanti;
 
 public class Stato_iniziale extends Stato{
 
@@ -9,9 +12,9 @@ public class Stato_iniziale extends Stato{
 	}
 
 	@Override
-	public void prossimo_stato(Model_context model,String dati_input) {
+	public void prossimo_stato(Model_context model,ArrayList<String> dati_input) {
 		//codice controller old
-		switch (dati_input) {
+		switch (dati_input.get(0)) {
 			case "1":{
 				 model.set_stato_attuale(new Stato_log_in_utente(get_attore()));
 				 break;
@@ -33,7 +36,18 @@ public class Stato_iniziale extends Stato{
 
 	@Override
 	public void inizializza_output() {
-		super.set_output(Costanti_output.OUTPUT_STATO_INIZIALE);
+		super.set_output(new ArrayList<>(Arrays.asList(
+				Costanti.GRECA + 
+				"\n" + 
+				"              MENU' PRINCIPALE         " +
+				"\n" +
+				Costanti.GRECA + 
+				"\n" + 
+				"1)Accedere\n" +
+				"2)Registrazione\n"+
+				"3)Esci" +
+				"\n" + 
+				Costanti.GRECA)));
 	}
 
 }

@@ -1,5 +1,8 @@
 package versione_5.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Stato_errore extends Stato{
 
 	private Stato back,undo;
@@ -15,18 +18,19 @@ public class Stato_errore extends Stato{
 
 	@Override
 	public void inizializza_output() {
-		super.set_output(this.errore+"\n"+"premere 1 per tornare indietro premere 2 per reiserire i dati");
+		super.set_output(new ArrayList<>(Arrays.asList(this.errore+
+				"\n"+"premere 1 per tornare indietro premere 2 per reiserire i dati")));
 		
 	}
 
 	@Override
-	public void prossimo_stato(Model_context model, String dati_input) {
-		if(dati_input.equals("1")) {
+	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
+		// TODO Auto-generated method stub
+		if(dati_input.get(0).equals("1")) {
 			model.set_stato_attuale(back);
-		}else if(dati_input.equals("2")) {
+		}else if(dati_input.get(0).equals("2")) {
 			model.set_stato_attuale(undo);
 		}//todo
-		
 	}
 
 }
