@@ -32,13 +32,29 @@ public class Stato_utente_loggato extends Stato {
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {	
 		switch (dati_input.get(0)) {
-			case "1":{//Loggare come Fruitore
-				 model.set_stato_attuale(new Stato_log_in_fruitore(get_attore()));
-				 break;
+			case "1":{//Loggare come Fruitore		
+				Fruitore fruitore=model.get_database_file().carica_fruitore(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
+				if(fruitore==null) {
+					model.set_stato_attuale(new Stato_errore(model, this, this, "Non sei registrato come fruitore", get_attore()));
+				}
+				else {
+					if(!fruitore.is_valido()) {//controlla che sia 
+						model.get_database_file().elimina_fruitore(fruitore);		
+						model.set_stato_attuale(new Stato_errore(model, this,this, "La registrazione come fruitore e' scaduta", get_attore()));
+					}
+				model.set_stato_attuale(new Stato_fruitore_loggato(fruitore));
+				}
+				break;
 			}
 			case "2":{//Loggare come Operatore
-				 model.set_stato_attuale(new Stato_log_in_operatore(get_attore()));
-				 break;
+				Operatore operatore=model.get_database_file().carica_operatore(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());
+				if(operatore==null) {
+					model.set_stato_attuale(new Stato_errore(model, this, this, "Non sei registrato come operatore", get_attore()));
+				}
+				else {
+					model.set_stato_attuale(new Stato_operatore_loggato(operatore));
+				}
+				break;
 			}
 			case "3":{//Registra nuovo Fruitore
 				 model.set_stato_attuale(new Stato_registra_nuovo_fruitore(get_attore()));

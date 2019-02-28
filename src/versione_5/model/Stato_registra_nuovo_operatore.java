@@ -17,7 +17,19 @@ public class Stato_registra_nuovo_operatore extends Stato {
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> view_input) {
-		// TODO Auto-generated method stub
+		/*
+		 * if(db.carica_operatore(utente.get_username(), utente.get_password())!=null) {
+				view.scrivi("Sei gia registrato come operatore");
+				this.user_loggato(utente);
+			}
+			else {
+				this.view.scrivi(utente.get_username()+" sei diventato operatore");
+				//new Database_file().salva_operatore(new Operatore(utente));		
+				db.salva_operatore(new Operatore(utente));
+				archivio.salva_operatore(new Operatore(utente));//salvo l'operatore nell'archivio
+				this.user_loggato(utente);
+			}
+		 */
 
 	}
 

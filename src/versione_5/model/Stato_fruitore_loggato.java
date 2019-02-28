@@ -2,9 +2,9 @@ package versione_5.model;
 
 import java.util.ArrayList;
 
-public class Stato_log_in_fruitore extends Stato {
+public class Stato_fruitore_loggato extends Stato {
 
-	public Stato_log_in_fruitore(Object attore) {
+	public Stato_fruitore_loggato(Object attore) {
 		super(attore);
 		// TODO Auto-generated constructor stub
 	}
