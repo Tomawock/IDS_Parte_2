@@ -25,6 +25,10 @@ public class Stato_registrazione_utente extends Stato {
 				" **** Inserire Password **** ")));
 	}
 
+	/**
+	 * Consente di inserire le credenziali di una persona ed inserirla all'interno dell'archivio
+	 * come utente
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> view_input) {
 		Utente user= null;

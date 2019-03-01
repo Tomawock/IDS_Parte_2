@@ -23,6 +23,9 @@ public class Stato_inserisci_id_risorsa_aggiungi_descrizione extends Stato {
 		+ Costanti.GRECA2)));
 	}
 
+	/**
+	 * Consente di aggiungere la descrizione di una risorsa in base al suo id
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		int id=-1;

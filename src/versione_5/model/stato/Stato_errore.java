@@ -10,6 +10,13 @@ public class Stato_errore extends Stato{
 	private Stato back,undo;
 	private String errore;
 	
+	/**
+	 * Crea lo stato di errore 
+	 * @param back				stato che consente di tornare indietro 
+	 * @param undo				stato che consente di riprovare l'inserimento
+	 * @param msg_errore		setta l'attirubuto che verrà passato alla view
+	 * @param attore			attributo su cui si svolgono le operazioni durante lo stato
+	 */
 	public Stato_errore(Stato back, Stato undo, String msg_errore,Object attore) {
 		super(attore);
 		this.back=back;

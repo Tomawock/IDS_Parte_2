@@ -9,12 +9,17 @@ public abstract class Stato {
 	private ArrayList<String> output;
 	private Object attore;
 	
+	/**
+	 * Crea un nuovo Stato ed inizilizza l'output
+	 * @param attore 		attributo su cui si svolgono le operazioni durante lo stato
+	 */
 	public Stato(Object attore) {
 		this.attore=attore;
 		inizializza_output();
 	}
+	
 	/**
-	 * usare set output all'interno per avere l'output corretto sulla view
+	 * funzione che setterà nell'attributo output i dati relativi allo stato
 	 */
 	public abstract void inizializza_output();
 
@@ -30,5 +35,10 @@ public abstract class Stato {
 		this.output= output;
 	}
 	
-	public abstract void prossimo_stato(Model_context model,ArrayList<String> view_input);
+	/**
+	 * Funzione che consente il passaggio allo stato successivo
+	 * @param model 		context del pattern state.
+	 * @param dati_input	dati che la logica prende dalla parte grafica
+	 */
+	public abstract void prossimo_stato(Model_context model,ArrayList<String> dati_input);
 }

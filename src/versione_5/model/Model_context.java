@@ -11,6 +11,9 @@ public class Model_context {
 	private Archivio archivio;
 	private Query query;
 	
+	/**
+	 * Crea il model
+	 */
 	public Model_context() {
 		db= new Database_file();
 		archivio= new Archivio();
@@ -33,8 +36,12 @@ public class Model_context {
 		this.stato_attuale = stato_attuale;
 	}
 	
-	public void prossimo_stato(ArrayList<String> view_input) {
-		stato_attuale.prossimo_stato(this,view_input);
+	/**
+	 * Funzione che consente il passaggio allo stato successivo
+	 * @param dati_input	dati che la logica prende dalla parte grafica
+	 */
+	public void prossimo_stato(ArrayList<String> dati_input) {
+		stato_attuale.prossimo_stato(this,dati_input);
 	}
 
 	public Query get_query() {

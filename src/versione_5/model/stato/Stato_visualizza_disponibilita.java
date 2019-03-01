@@ -21,7 +21,10 @@ public class Stato_visualizza_disponibilita extends Stato {
 				+ Costanti.GRECA2)));
 
 	}
-
+	
+	/*
+	 * Consente di visualizzare il numero di copie disponibili di una determinata risorsa
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		

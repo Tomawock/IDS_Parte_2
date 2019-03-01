@@ -10,6 +10,12 @@ public class Stato_notifica extends Stato {
 	Stato back;
 	String notifica;	
 	
+	/**
+	 * 
+	 * @param back				stato a cui deve andare a seguito della notifica
+	 * @param notifica			setta l'attributo corrispondente all'output della view
+	 * @param attore			attributo su cui si svolgono le operazioni durante lo stato
+	 */
 	public Stato_notifica(Stato back, String notifica, Object attore) {
 		super(attore);
 		this.back=back;

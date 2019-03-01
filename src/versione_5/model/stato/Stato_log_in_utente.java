@@ -19,6 +19,10 @@ public class Stato_log_in_utente extends Stato {
 				" **** Inserire Password **** ")));
 	}
 
+	/**
+	 * Consente di accedere al sistema come utente se le credenziali di accesso sono corrette 
+	 * e presenti nell'archivio
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		ArrayList<String> utente=dati_input;

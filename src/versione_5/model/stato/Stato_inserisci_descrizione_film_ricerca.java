@@ -31,6 +31,9 @@ public class Stato_inserisci_descrizione_film_ricerca extends Stato {
 
 	}
 
+	/**
+	 * Consente di cercare un film con una determinata descrizione
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		Film f=new Film(0, 0);

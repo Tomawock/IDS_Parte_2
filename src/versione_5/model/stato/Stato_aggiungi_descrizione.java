@@ -13,13 +13,8 @@ import versione_5.model.Risorsa;
 
 public class Stato_aggiungi_descrizione extends Stato {
 
-	/**
-	 * 
-	 * @param attore è un array lsit con come primo elemento la risorsa selezionata dall'utente e l'operatore
-	 */
 	public Stato_aggiungi_descrizione(Object attore) {
 		super(attore);
-		
 	}
 
 	@Override
@@ -45,6 +40,10 @@ public class Stato_aggiungi_descrizione extends Stato {
 		}
 	}
 
+	/**
+	 * La funzione riceve in ingresso una risorsa, la nuova descrizione, viene modificata nella risorsa ed infine 
+	 * viene aggiornato il database. Viene passato l'operatore allo stato successivo
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		Risorsa risorsa = (Risorsa)((ArrayList<Object>)get_attore()).get(0);
@@ -53,7 +52,6 @@ public class Stato_aggiungi_descrizione extends Stato {
 		risorsa.aggiungi_descrizione(dati_input);
 		model.get_database_file().salva_categoria_root(cat);
 		model.get_archivio().salva_categoria_root(cat);
-		
 		model.set_stato_attuale(new Stato_operatore_loggato(((ArrayList<Object>)get_attore()).get(1)));
 	}
 

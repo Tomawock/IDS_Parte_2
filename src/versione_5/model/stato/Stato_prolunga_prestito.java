@@ -33,6 +33,9 @@ public class Stato_prolunga_prestito extends Stato {
 		+ Costanti.GRECA2)));	
 	}
 
+	/**
+	 * Consente di prolungare un prestito 
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		

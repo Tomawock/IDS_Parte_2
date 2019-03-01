@@ -49,6 +49,9 @@ public class Stato_fruitore_loggato extends Stato {
 
 	}
 
+	/**
+	 * Consente di gestire le scelte che possono essere fatte dal fruitore 
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		Fruitore fruitore= (Fruitore)get_attore();

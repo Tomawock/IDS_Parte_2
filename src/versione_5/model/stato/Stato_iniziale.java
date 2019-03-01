@@ -13,6 +13,26 @@ public class Stato_iniziale extends Stato{
 	}
 
 	@Override
+	public void inizializza_output() {
+		super.set_output(new ArrayList<>(Arrays.asList(
+				Costanti.GRECA + 
+				"\n" + 
+				"              MENU' PRINCIPALE         " +
+				"\n" +
+				Costanti.GRECA + 
+				"\n" + 
+				"1)Accedere\n" +
+				"2)Registrazione\n"+
+				"3)Esci" +
+				"\n" + 
+				Costanti.GRECA)));
+	}
+
+	/**
+	 * Consente di effettuare la prima scelta all'accessione del sistema ed 
+	 * in base ai dati passati dalla view andare nello stato sucessivo
+	 */
+	@Override
 	public void prossimo_stato(Model_context model,ArrayList<String> dati_input) {
 		switch (dati_input.get(0)) {
 			case "1":{
@@ -32,22 +52,6 @@ public class Stato_iniziale extends Stato{
 				 break;
 			}
 		}
-	}
-
-	@Override
-	public void inizializza_output() {
-		super.set_output(new ArrayList<>(Arrays.asList(
-				Costanti.GRECA + 
-				"\n" + 
-				"              MENU' PRINCIPALE         " +
-				"\n" +
-				Costanti.GRECA + 
-				"\n" + 
-				"1)Accedere\n" +
-				"2)Registrazione\n"+
-				"3)Esci" +
-				"\n" + 
-				Costanti.GRECA)));
 	}
 
 }

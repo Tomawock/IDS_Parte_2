@@ -31,6 +31,9 @@ public class Stato_inserisci_descrizione_libro_ricerca extends Stato {
 				" **** Inserire Genere **** ")));
 	}
 
+	/**
+	 * Consente di cercare un film con una determinata descrizione
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		Libro l=new Libro(0, 0);

@@ -33,6 +33,9 @@ public class Stato_utente_loggato extends Stato {
 
 	}
 
+	/**
+	 * Consente di effetuare la scelta all'interno del menù dell'utente
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {	
 		Utente utente= model.get_database_file().carica_utente(((Utente)get_attore()).get_username(), ((Utente)get_attore()).get_password());

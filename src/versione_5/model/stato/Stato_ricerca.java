@@ -25,6 +25,10 @@ public class Stato_ricerca extends Stato {
 
 	}
 
+	/**
+	 * Consente di scegliere fra la risorsa libro o film per effettuare la ricerca in base alla descrizione della 
+	 * categoria scelta
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		switch(dati_input.get(0)) {

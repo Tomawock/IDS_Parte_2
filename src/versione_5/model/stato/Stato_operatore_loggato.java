@@ -39,6 +39,10 @@ public class Stato_operatore_loggato extends Stato {
 				+ Costanti.GRECA3)));
 	}
 
+	/**
+	 * Consente all'operatore presente nel sistema di andare nello stato successivo in base 
+	 * all'input 
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		switch(dati_input.get(0)) {

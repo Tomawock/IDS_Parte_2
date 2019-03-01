@@ -25,6 +25,11 @@ public class Stato_effettua_prestito extends Stato {
 		+ Costanti.GRECA2)));
 	}
 
+	/**
+	 * Funzione che riceve iningresso l'id della risorsa da associare al fruitore per creare il prestito.
+	 * nel caso la risorsa ed il fruitore abbiano i requisiti necessari, viene creato il prestito ed 
+	 * aggiornato il database
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
 		Fruitore fruitore = (Fruitore)get_attore();

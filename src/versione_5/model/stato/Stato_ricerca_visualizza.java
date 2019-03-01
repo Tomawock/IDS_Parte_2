@@ -27,9 +27,11 @@ public class Stato_ricerca_visualizza extends Stato {
 
 	}
 
+	/**
+	 * Consente di scegliere se effettuare la ricerca o la visualizzazione delle risorse
+	 */
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
-		
 		switch(dati_input.get(0)) {
 			case "1":{
 				model.set_stato_attuale(new Stato_ricerca(get_attore()));
