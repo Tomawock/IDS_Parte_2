@@ -45,7 +45,7 @@ public class Stato_effettua_prestito extends Stato {
 					model.get_database_file().salva_prestito(p);
 					model.get_archivio().salva_categoria_root(cat);//salvo nell'archivio le risorse e i l prestito
 					model.get_archivio().salva_prestito(p);
-					model.set_stato_attuale(new Stato_notifica(new Stato_fruitore_loggato(get_attore()), "Libro Aggiunto con successo", get_attore()));
+					model.set_stato_attuale(new Stato_notifica(new Stato_fruitore_loggato(get_attore()), res.getClass().getSimpleName()+" Aggiunto con successo", get_attore()));
 				}else {
 					if(prestiti_per_fruitore.size()>=res.get_max_n_prestiti() &&
 							res.get_disponibili()<=0) {

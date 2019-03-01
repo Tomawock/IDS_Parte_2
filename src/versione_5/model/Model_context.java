@@ -7,10 +7,12 @@ public class Model_context {
 	private Stato stato_attuale;
 	private Database_file db;
 	private Archivio archivio;
+	private Query query;
 	
 	public Model_context() {
 		db= new Database_file();
 		archivio= new Archivio();
+		query = new Query(archivio);
 	}
 	
 	public Database_file get_database_file() {
@@ -31,5 +33,9 @@ public class Model_context {
 	
 	public void prossimo_stato(ArrayList<String> view_input) {
 		stato_attuale.prossimo_stato(this,view_input);
+	}
+
+	public Query get_query() {
+		return query;
 	}
 }
