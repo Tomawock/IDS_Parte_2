@@ -91,8 +91,7 @@ public class Stato_fruitore_loggato extends Stato {
 			}
 			else {
 				model.set_stato_attuale(new Stato_notifica(this,"Non hai prestiti" ,fruitore));
-			}
-				
+			}	
 			break;
 		}
 		case "5":{//Ricerca o Visualizza disponibilita Risorsa

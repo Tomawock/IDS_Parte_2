@@ -19,7 +19,7 @@ public class Stato_errore extends Stato{
 	@Override
 	public void inizializza_output() {
 		super.set_output(new ArrayList<>(Arrays.asList(this.errore +
-				"\nPremere 1 per tornare indietro \nPremere 2 per reiserire i dati")));
+				"\n1)Torna indietro\n2)Reinserire i dati")));
 		
 	}
 
