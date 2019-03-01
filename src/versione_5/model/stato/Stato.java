@@ -1,6 +1,8 @@
-package versione_5.model;
+package versione_5.model.stato;
 
 import java.util.ArrayList;
+
+import versione_5.model.Model_context;
 
 public abstract class Stato {
 	

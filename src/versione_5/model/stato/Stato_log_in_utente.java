@@ -1,7 +1,10 @@
-package versione_5.model;
+package versione_5.model.stato;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import versione_5.model.Model_context;
+import versione_5.model.Utente;
 
 public class Stato_log_in_utente extends Stato {
 

@@ -1,7 +1,9 @@
-package versione_5.model;
+package versione_5.model.stato;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import versione_5.model.Model_context;
 
 public class Stato_errore extends Stato{
 

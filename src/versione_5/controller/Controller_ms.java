@@ -5,9 +5,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 import versione_5.model.Model_context;
-import versione_5.model.Stato;
-import versione_5.model.Stato_iniziale;
-import versione_5.model.Stato_terminato;
+import versione_5.model.stato.Stato;
+import versione_5.model.stato.Stato_iniziale;
+import versione_5.model.stato.Stato_terminato;
 import versione_5.view.View_ms;
 
 public class Controller_ms implements Observer {

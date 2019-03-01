@@ -2,8 +2,8 @@ package versione_5.controller;
 
 import utilita.Emulazione_Server;
 import versione_5.model.Model_context;
-import versione_5.model.Stato;
-import versione_5.model.Stato_iniziale;
+import versione_5.model.stato.Stato;
+import versione_5.model.stato.Stato_iniziale;
 import versione_5.view.View_ms;
 
 public class Main {

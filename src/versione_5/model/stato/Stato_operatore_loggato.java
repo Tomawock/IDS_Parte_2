@@ -1,4 +1,4 @@
-package versione_5.model;
+package versione_5.model.stato;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,6 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import utilita.Costanti;
+import versione_5.model.Categoria;
+import versione_5.model.Fruitore;
+import versione_5.model.Model_context;
+import versione_5.model.Operatore;
+import versione_5.model.Risorsa;
 
 public class Stato_operatore_loggato extends Stato {
 

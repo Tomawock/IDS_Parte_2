@@ -1,15 +1,17 @@
-package versione_5.model;
+package versione_5.model.stato;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import utilita.Costanti;
+import versione_5.model.Libro;
+import versione_5.model.Model_context;
+import versione_5.model.Risorsa;
 
-public class Stato_inserisci_descrizione_film_ricerca extends Stato {
+public class Stato_inserisci_descrizione_libro_ricerca extends Stato {
 
-	public Stato_inserisci_descrizione_film_ricerca(Object attore) {
+	public Stato_inserisci_descrizione_libro_ricerca(Object attore) {
 		super(attore);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -21,18 +23,19 @@ public class Stato_inserisci_descrizione_film_ricerca extends Stato {
 				+ Costanti.GRECA
 				+ "\n"
 				+ " **** Inserire Titolo **** ",
-				" **** Inserire Regista **** ",
-				" **** Inserire Durata in minuti **** ",
+				" **** Inserire Autore **** ",
+				" **** Inserire Numero di Pagine **** ",
 				" **** Inserire Anno di pubblicazione **** ",
+				" **** Inserire Casa Editrice **** ",
+				" **** Inserire Lingua **** ",
 				" **** Inserire Genere **** ")));
-
 	}
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
-		Film f=new Film(0, 0);
-		f.aggiungi_descrizione(dati_input);
-		ArrayList<Risorsa>risorse_trovate =model.get_database_file().ricerca_per_descrizione(f);
+		Libro l=new Libro(0, 0);
+		l.aggiungi_descrizione(dati_input);
+		ArrayList<Risorsa>risorse_trovate =model.get_database_file().ricerca_per_descrizione(l);
 		String output="";
 		if(risorse_trovate.isEmpty()) {
 			output="Non sono state trovate risorse corrispondenti alla ricerca";

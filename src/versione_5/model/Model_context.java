@@ -2,6 +2,8 @@ package versione_5.model;
 
 import java.util.ArrayList;
 
+import versione_5.model.stato.Stato;
+
 public class Model_context {
 	
 	private Stato stato_attuale;
