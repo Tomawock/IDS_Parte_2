@@ -14,15 +14,26 @@ public class Stato_prolunga_prestito extends Stato {
 
 	@Override
 	public void inizializza_output() {
+		String output="";
+		ArrayList<Prestito> prestiti= (ArrayList<Prestito>)get_attore();
+		if(!prestiti.isEmpty()) {
+			for(int i=0;i< prestiti.size();i++) {
+				int temp=i+1;
+				output+=temp+")"+prestiti.get(i).toString()+"\n";
+			}
+		}
+			
 		super.set_output(new ArrayList<>(Arrays.asList(
-		Costanti.GRECA2
+		output		
+		+Costanti.GRECA2
 		+ "\n **** Inserire numero del prestito da prorogare **** \n"
 		+ Costanti.GRECA2)));	
 	}
 
 	@Override
 	public void prossimo_stato(Model_context model, ArrayList<String> dati_input) {
-		Fruitore fruitore = (Fruitore)get_attore();
+		
+		Fruitore fruitore = ((ArrayList<Prestito>)get_attore()).get(0).get_fruitore();
 		
 		ArrayList<Prestito> prestiti=model.get_database_file().get_tutti_prestiti_per_fruitore(fruitore);
 		int num_prestito=-1;
@@ -30,7 +41,7 @@ public class Stato_prolunga_prestito extends Stato {
 			num_prestito=Integer.parseInt(dati_input.get(0));
 		}
 		catch(Exception exe) {
-			model.set_stato_attuale(new Stato_errore(new Stato_fruitore_loggato(get_attore()), this,"Inserire un numero", get_attore()));
+			model.set_stato_attuale(new Stato_errore(new Stato_fruitore_loggato(fruitore), this,"Inserire un numero", fruitore));
 			return;
 		}
 		
@@ -39,10 +50,11 @@ public class Stato_prolunga_prestito extends Stato {
 			if(i==num_prestito && prestiti.get(i).rinnova()) {
 				model.get_database_file().aggiorna_prestito(prestiti.get(i));
 				model.get_archivio().aggiorna_prestito(prestiti.get(i));
-				model.set_stato_attuale(new Stato_notifica(new Stato_fruitore_loggato(get_attore()), "Prestito prorogato", get_attore()));
+				model.set_stato_attuale(new Stato_notifica(new Stato_fruitore_loggato(fruitore), "Prestito prorogato", fruitore));
+				return;
 			}
 		}
-		model.set_stato_attuale(new Stato_errore(new Stato_fruitore_loggato(get_attore()), this, "Prestio non preorogato perchè non è stato trovato", get_attore()));
+		model.set_stato_attuale(new Stato_errore(new Stato_fruitore_loggato(fruitore), this, "Prestio non prorogato", fruitore));
 	}
 
 }

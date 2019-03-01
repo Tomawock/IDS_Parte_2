@@ -85,7 +85,14 @@ public class Stato_fruitore_loggato extends Stato {
 			break;
 		}
 		case "4":{//Prolunga prestito
-			model.set_stato_attuale(new Stato_prolunga_prestito(get_attore()));
+			ArrayList<Prestito> prestiti=model.get_database_file().get_tutti_prestiti_per_fruitore(fruitore);
+			if(!prestiti.isEmpty()) {
+				model.set_stato_attuale(new Stato_prolunga_prestito(prestiti));
+			}
+			else {
+				model.set_stato_attuale(new Stato_notifica(this,"Non hai prestiti" ,fruitore));
+			}
+				
 			break;
 		}
 		case "5":{//Ricerca o Visualizza disponibilita Risorsa
