@@ -138,121 +138,138 @@
   </class>  
   <class id="16" language="java" name="versione_5.view.View_ms" project="IDS_Parte_2" 
     file="/IDS_Parte_2/src/versione_5/view/View_ms.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="311" width="188" x="1496" y="-50"/>    
+    <position height="311" width="188" x="1674" y="-60"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="17">    
+  <class id="17" language="java" name="versione_5.model.stato.Stato" project="IDS_Parte_2" 
+    file="/IDS_Parte_2/src/versione_5/model/stato/Stato.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1468" y="236"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="18">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="18" name="sottocategorie"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+      <attribute id="19" name="sottocategorie"/>      
+      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="20">    
+  <association id="21">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="21" name="risorsa"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="22" name="risorsa"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
+  <association id="24">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="24" name="risorse"/>      
-      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+      <attribute id="25" name="risorse"/>      
+      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="26">    
+  <association id="27">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="27" name="db"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
+      <attribute id="28" name="db"/>      
+      <multiplicity id="29" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="29">    
+  <association id="30">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="30" name="query"/>      
-      <multiplicity id="31" minimum="0" maximum="1"/>    
+      <attribute id="31" name="query"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="32">    
+  <association id="33">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="34" name="stato_attuale"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="33" name="utente"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
+      <attribute id="37" name="utente"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="35">    
+  <realization id="39">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="14"/>  
   </realization>  
-  <association id="36">    
+  <association id="40">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="37" name="archivio"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+      <attribute id="41" name="archivio"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="39">    
+  <generalization id="43">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="40">    
+  <association id="44">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="41" name="db"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
+      <attribute id="45" name="db"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="43">    
+  <association id="47">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="44" name="model"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+      <attribute id="48" name="model"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="46">    
+  <generalization id="50">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="47">    
+  <association id="51">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="48" name="utente"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
+      <attribute id="52" name="utente"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="50">    
+  <realization id="54">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="14"/>  
   </realization>  
-  <association id="51">    
+  <association id="55">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="52" name="view"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
+      <attribute id="56" name="view"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
+  <association id="58">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="55" name="fruitore"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+      <attribute id="59" name="fruitore"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
