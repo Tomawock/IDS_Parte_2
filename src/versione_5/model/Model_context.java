@@ -7,8 +7,8 @@ import versione_5.model.stato.Stato;
 public class Model_context {
 	
 	private Stato stato_attuale;
-	private Database_file db;
-	private Archivio archivio;
+	private Salvataggio db;
+	private Salvataggio archivio;
 	private Query query;
 	
 	/**
@@ -20,11 +20,11 @@ public class Model_context {
 		query = new Query(archivio);
 	}
 	
-	public Database_file get_database_file() {
+	public Salvataggio get_database_file() {
 		return db;
 	}
 	
-	public Archivio get_archivio() {
+	public Salvataggio get_archivio() {
 		return archivio;
 	}
 	

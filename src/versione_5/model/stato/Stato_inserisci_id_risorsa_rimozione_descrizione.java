@@ -38,7 +38,7 @@ public class Stato_inserisci_id_risorsa_rimozione_descrizione extends Stato {
 		if(res!=null) {
 			res.rimuovi_descrizione();
 			model.get_database_file().salva_categoria_root(cat);
-			model.get_database_file().salva_categoria_root(cat);//aggiona la descrizione in modo corretto anche sull archivio
+			model.get_archivio().salva_categoria_root(cat);//aggiona la descrizione in modo corretto anche sull archivio
 			model.set_stato_attuale(new Stato_notifica(new Stato_operatore_loggato(get_attore()), "Descrizione rimossa", get_attore()));
 		}else {
 			model.set_stato_attuale(new Stato_errore(new Stato_operatore_loggato(get_attore()), this, "Risorsa non trovata", get_attore()));
